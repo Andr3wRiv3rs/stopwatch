@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Stopwatch</title>
+    </head>
+<body>
+    <span id="days">00</span> :
+    <span id="hours">00</span> :
+    <span id="minutes">00</span> :
+    <span id="seconds">00</span>
+
+    <br><br>
+
+    <button id="reset">Reset</button>
+
+    <script type="module">
+        import { start, reset } from './stopwatch.js' // import functions from stopwatch script
+
+        const $id = id => document.getElementById(id) // selects an element by id
+        
+        start(({ days, hours, minutes, seconds }) => { // destructure variables from time object
+            $id('days').innerText = days //set days text
+            $id('hours').innerText = hours
+            $id('minutes').innerText = minutes
+            $id('seconds').innerText = seconds
+        })
+
+        $id('reset').onclick = () => reset()
+    </script>
+</body>
+</html>
