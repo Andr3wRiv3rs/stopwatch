@@ -1,4 +1,4 @@
-export const start = async ( callback = _ => {}, timestamp_url = "http://localhost/time" ) => { // assignments here are the default values for parameters
+export const start = async ( callback = _ => {}, timestamp_url = `${location.origin}/time` ) => { // assignments here are the default values for parameters
     let timestamp // declare timestamp variable to avoid scoping issues
 
     const time = {
@@ -38,7 +38,7 @@ export const start = async ( callback = _ => {}, timestamp_url = "http://localho
     }, 1000)
 }
 
-export const reset = async ( reset_url = "http://localhost/reset" ) => {
+export const reset = async ( reset_url = `${location.origin}/reset` ) => {
     try {
         await fetch(reset_url) // make a get request to the reset url
         location.reload() // reload the page
